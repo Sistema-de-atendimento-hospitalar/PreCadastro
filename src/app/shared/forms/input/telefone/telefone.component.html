@@ -1,0 +1,11 @@
+<div *ngFor="let item of telefones; let i = index" class="form-row">
+    <input type="text" class="form-control col-lg-2 col-md-2 col-sm-2" id="ddd" name="ddd" required minlength="2" placeholder="DDD" />
+    <input type="text" class="form-control col-lg-6 col-md-6 col-sm-6" id="telefone" name="telefone" required minlength="8" placeholder="Telefone" />
+    <select class="form-control col-lg-4 col-md-4 col-sm-4">
+        <option>Selecione</option>
+        <option value="celular">Celular</option>
+        <option value="residencial">Residencial</option>
+        <option value="escritorio">Escritorio</option>
+    </select>
+    <img class="form-control col-lg-1 col-md-1 col-sm-1" src="assets/img/add.png" (click)="addTelefone()">
+</div>
