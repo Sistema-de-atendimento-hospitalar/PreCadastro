@@ -18,9 +18,11 @@ import { CarouselModule } from "ngx-bootstrap/carousel";
 import { ModalModule } from "ngx-bootstrap/modal";
 import { JwBootstrapSwitchNg2Module } from "jw-bootstrap-switch-ng2";
 import { PopoverModule } from "ngx-bootstrap/popover";
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSelectModule} from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 
 
@@ -40,6 +42,7 @@ import { InputEstadoComponent } from '../shared/forms/input/input-estado/input-e
 import { InputCidadeComponent } from '../shared/forms/input/input-cidade/input-cidade.component';
 import { EnderecoComponent } from '../shared/forms/input/endereco/endereco.component';
 import { TelefoneComponent } from '../shared/forms/input/telefone/telefone.component';
+import { ModalComponent } from '../shared/modal/modal.component';
 
 
 import { DadosPessoaisComponent } from './dados-pessoais/dados-pessoais.component';
@@ -47,11 +50,13 @@ import { DadosEnderecoComponent } from './dados-endereco/dados-endereco.componen
 import { DadosTelefoneComponent } from './dados-telefone/dados-telefone.component';
 import { DadosConvenioComponent } from './dados-convenio/dados-convenio.component';
 
+
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   imports: [
     // NgCpfModule,
+    MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
     MatButtonModule,
@@ -87,6 +92,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     InputCidadeComponent,
     EnderecoComponent,
     TelefoneComponent,
+    ModalComponent,
 
     DadosPessoaisComponent,
     DadosEnderecoComponent,
@@ -101,4 +107,4 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
   ],
   providers: []
 })
-export class PagesModule {}
+export class PagesModule { }

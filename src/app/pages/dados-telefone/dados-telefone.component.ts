@@ -14,8 +14,7 @@ export class DadosTelefoneComponent implements OnInit {
   }
 
   nextPage() {
-    // Realizar validação com o cpf
-    this.router.navigate(['/passo1']);
+    this.router.navigate(['/passo4']);
   }
 
 }

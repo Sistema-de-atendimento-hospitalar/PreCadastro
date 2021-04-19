@@ -18,10 +18,7 @@ import { CarouselModule } from "ngx-bootstrap/carousel";
 import { ModalModule } from "ngx-bootstrap/modal";
 import { PagesModule } from "./pages/pages.module";
 
-
-
 import { IndexComponent } from "./pages/index/index.component";
-import { ModalComponent } from './shared/modal/modal.component';
 // import { ProfilepageComponent } from "./pages/profilepage/profilepage.component";
 // import { RegisterpageComponent } from "./pages/registerpage/registerpage.component";
 // import { LandingpageComponent } from "./pages/landingpage/landingpage.component";
@@ -31,7 +28,6 @@ import { ModalComponent } from './shared/modal/modal.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ModalComponent,
     // DadosConvenioComponent,
     //SquareComponent,
     //FooterComponent,
@@ -47,7 +43,7 @@ import { ModalComponent } from './shared/modal/modal.component';
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
-     BsDropdownModule.forRoot(),
+    BsDropdownModule.forRoot(),
     ProgressbarModule.forRoot(),
     TooltipModule.forRoot(),
     CollapseModule.forRoot(),
@@ -57,11 +53,8 @@ import { ModalComponent } from './shared/modal/modal.component';
     AlertModule.forRoot(),
     BsDatepickerModule.forRoot(),
     CarouselModule.forRoot(),
-    ModalModule.forRoot(),
-
-     
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
