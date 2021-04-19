@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router } from '@angular/router';
+import { PacienteService} from '../../service/paciente/paciente.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: "app-index",
@@ -10,10 +12,11 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   dataText = ["Olá, seja bem vindo!", "Informe seu CPF", "Obrigada!"];
 
-  public cpf: String = null;
+  public cpf: string = null;
   public hasError: Boolean = false;
+  public showAnimation: Boolean = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private pacienteService:PacienteService) { }
 
   ngOnInit() {
     this.startTextAnimation(0);
@@ -33,6 +36,9 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   startTextAnimation(i) {
+    if (!this.showAnimation) {
+      return false;
+    }
     if (typeof this.dataText[i] == 'undefined') {
       setTimeout(() => {
         this.startTextAnimation(0);
@@ -47,14 +53,19 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.dataText = null;
+    this.showAnimation = false;
   }
 
   nextPage() {
-    this.dataText = null;
+    this.showAnimation = false;
     console.log('validar cpf', this.cpf);
 
     if (this.validarCpf(this.cpf)) {
+      let result = this.pacienteService.verifyPacienteFromCpf(this.cpf);
+      if (result) {
+
+      }
+
       this.router.navigate(['/passo1']);
     } else {
       this.hasError = true;
@@ -66,7 +77,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     let resto: number;
     let i: number;
 
-    if (strCPF === '00000000000' || strCPF === '11111111111' || strCPF === '22222222222' || strCPF === '33333333333' ||
+    if (strCPF == null || strCPF === '00000000000' || strCPF === '11111111111' || strCPF === '22222222222' || strCPF === '33333333333' ||
       strCPF === '44444444444' || strCPF === '55555555555' || strCPF === '66666666666' || strCPF === '77777777777' ||
       strCPF === '88888888888' || strCPF === '99999999999' || strCPF.length !== 11) {
       return false;

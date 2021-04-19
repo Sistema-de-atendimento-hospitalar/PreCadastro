@@ -2,6 +2,19 @@ h1 {
     font-size: 2em;
 }
 
+div.alert-error {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 1.2em;
+    color: brown !important;
+    margin-top: 1%;
+    margin-left: 2%;
+}
+
+.form-control.is-invalid {
+    border-color: brown !important;
+    background-color: transparent !important;
+}
+
 @media screen and (min-width: 300px) and (max-width: 700px) {
     .content-center {
         padding: 0 0 !important;
