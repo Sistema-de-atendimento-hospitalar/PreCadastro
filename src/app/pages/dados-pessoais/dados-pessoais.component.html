@@ -22,7 +22,19 @@
                             <div class="form-row">
                                 <div class="col-lg-9 col-md-9 col-sm-9">
                                     <label for="email" class="col-sm-12 col-form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" required minlength="7" placeholder="exemple@gmail.com" />
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 email">
+                                            <input type="email" class="form-control" id="email" name="email" required minlength="7" placeholder="Email" />
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 email-select">
+                                            <mat-select class="form-control" id="email-select" name="sexo" required>
+                                                <mat-option value="gmail">@gmail.com</mat-option>
+                                                <mat-option value="hotmail">@hotmail.com</mat-option>
+                                                <mat-option value="outlook">@outlook.com</mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3">
                                     <label for="sexo" class="col-sm-12 col-form-label">Sexo</label>
@@ -35,7 +47,7 @@
                             <div class="form-row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <label for="rg" class="col-sm-12 col-form-label">Rg</label>
-                                    <input type="number" class="form-control" id="rg" name="rg" required minlength="6" placeholder="00.000.000-00 " />
+                                    <input type="string" class="form-control" id="rg" name="rg" required minlength="13" placeholder="00.000.000-00 " [(ngModel)]="rg" mask="00.000.000-00" />
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3">
                                     <label for="orgExpedidor" class="col-sm-12 col-form-label">Orgão Expedidor</label>

@@ -6,7 +6,7 @@
         <div class="form-row">
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <label for="cep" class="col-sm-12 col-form-label">Cep</label>
-                <input type="text" class="form-control" id="cep-{i}" name="cep" required minlength="9" placeholder="04444-000" />
+                <input type="text" class="form-control" id="cep-{i}" name="cep" required minlength="9" placeholder="00000-000" [(ngModel)]="cep" mask="00000-000" />
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-12">
