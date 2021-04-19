@@ -43,6 +43,8 @@ import { InputCidadeComponent } from '../shared/forms/input/input-cidade/input-c
 import { EnderecoComponent } from '../shared/forms/input/endereco/endereco.component';
 import { TelefoneComponent } from '../shared/forms/input/telefone/telefone.component';
 import { ModalComponent } from '../shared/modal/modal.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 
 import { DadosPessoaisComponent } from './dados-pessoais/dados-pessoais.component';
@@ -56,6 +58,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
   imports: [
     // NgCpfModule,
+    MatDatepickerModule,
     MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
