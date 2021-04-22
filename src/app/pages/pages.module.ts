@@ -51,6 +51,7 @@ import { DadosPessoaisComponent } from './dados-pessoais/dados-pessoais.componen
 import { DadosEnderecoComponent } from './dados-endereco/dados-endereco.component';
 import { DadosTelefoneComponent } from './dados-telefone/dados-telefone.component';
 import { DadosConvenioComponent } from './dados-convenio/dados-convenio.component';
+import { DadosConfirmacaoComponent } from './dados-confirmacao/dados-confirmacao.component';
 
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
@@ -101,6 +102,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     DadosEnderecoComponent,
     DadosTelefoneComponent,
     DadosConvenioComponent,
+    DadosConfirmacaoComponent,
   ],
   exports: [
     IndexComponent,

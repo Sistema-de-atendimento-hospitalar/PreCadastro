@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { catchError, tap, map, retry } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Paciente } from '../../../models/paciente.model'
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -19,9 +19,8 @@ export class PacienteService {
 
   constructor(private http: HttpClient) { }
 
-  verifyPacienteFromCpf(cpf: string) {
-    return this.http.get<any>(`${this.API_URL}/cpf/${cpf}`, httpOptions).pipe()
-      .subscribe(results => results);
+  verifyPacienteFromCpf(cpf: string): Observable<Paciente> {
+    return this.http.get<Paciente>(`${this.API_URL}/cpf/${cpf}`, httpOptions).pipe();
 
       // .pipe(
       //   tap(paciente => console.log(paciente)),
