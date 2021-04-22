@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router } from '@angular/router';
 import { PacienteService} from '../../service/paciente/paciente.service';
 import { Observable } from 'rxjs';
+import { Paciente } from "src/models/paciente.model";
+import { Key } from "selenium-webdriver";
 
 @Component({
   selector: "app-index",
@@ -15,6 +17,8 @@ export class IndexComponent implements OnInit, OnDestroy {
   public cpf: string = null;
   public hasError: Boolean = false;
   public showAnimation: Boolean = true;
+
+  private paciente: Paciente;
 
   constructor(private router: Router, private pacienteService:PacienteService) { }
 
@@ -61,12 +65,17 @@ export class IndexComponent implements OnInit, OnDestroy {
     console.log('validar cpf', this.cpf);
 
     if (this.validarCpf(this.cpf)) {
-      let result = this.pacienteService.verifyPacienteFromCpf(this.cpf);
-      if (result) {
-
-      }
-
-      this.router.navigate(['/passo1']);
+      this.pacienteService.verifyPacienteFromCpf(this.cpf)
+        .subscribe(result => {
+          this.paciente = result;
+          if (result) {
+            localStorage.setItem("paciente", JSON.stringify(this.paciente));
+            this.router.navigate(['/confirmacao-dados']);
+          } else {
+            localStorage.removeItem("paciente");
+            this.router.navigate(['/passo1']);
+          }
+        });
     } else {
       this.hasError = true;
     }
