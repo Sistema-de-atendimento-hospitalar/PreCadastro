@@ -15,27 +15,11 @@ import { PaginationModule } from "ngx-bootstrap/pagination";
 import { AlertModule } from "ngx-bootstrap/alert";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { CarouselModule } from "ngx-bootstrap/carousel";
-import { ModalModule } from "ngx-bootstrap/modal";
 import { PagesModule } from "./pages/pages.module";
-
-import { IndexComponent } from "./pages/index/index.component";
-// import { ProfilepageComponent } from "./pages/profilepage/profilepage.component";
-// import { RegisterpageComponent } from "./pages/registerpage/registerpage.component";
-// import { LandingpageComponent } from "./pages/landingpage/landingpage.component";
-//import { SquareComponent } from './shared/square/square.component';
-// import { DadosConvenioComponent } from './dados-convenio/dados-convenio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // DadosConvenioComponent,
-    //SquareComponent,
-    //FooterComponent,
-    //HeaderComponent,
-    //IndexComponent,
-    //ProfilepageComponent,
-    //RegisterpageComponent,
-    //LandingpageComponent
   ],
   imports: [
     BrowserAnimationsModule,

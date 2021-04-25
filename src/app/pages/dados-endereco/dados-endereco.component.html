@@ -6,7 +6,10 @@
             <div class="content-center">
                 <form #myForm="ngForm">
                     <h1>Endereço</h1>
-                    <form-endereco></form-endereco>
+                    <div>
+                        <form-endereco></form-endereco>
+                    </div>
+
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <button class="btn btn-prosseguir btn-danger btn-round" type="submit" (click)="nextPage()">
                             Prosseguir
@@ -18,4 +21,4 @@
     </div>
 </div>
 
-<app-modal title="Alerta Endereço" botaoClose="Fechar" botaoConfirmar=confirmar template="../../shared/template/modal/default.html"></app-modal>
+<!-- <app-modal title="Alerta Endereço" botaoClose="Fechar" botaoConfirmar=confirmar template="../../shared/template/modal/default.html"></app-modal> -->
