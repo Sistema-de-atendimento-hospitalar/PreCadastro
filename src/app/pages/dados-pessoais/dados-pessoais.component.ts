@@ -41,9 +41,15 @@ export class DadosPessoaisComponent implements OnInit {
     }
   }
 
-  validarCampos(paciente: Paciente) {
+  validarCampos(paciente: Paciente):boolean {
+   let validateNome = this.paciente.nome;
+   if(validateNome == null){
+     return false;
+   }
     return true;
   }
+
+
 
 }
 

@@ -14,7 +14,7 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   dataText = ["Olá, seja bem vindo!", "Informe seu CPF", "Obrigada!"];
 
-  public cpf: string = null;
+
   public hasError: Boolean = false;
   public showAnimation: Boolean = true;
 
@@ -23,6 +23,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private pacienteService:PacienteService) { }
 
   ngOnInit() {
+    this.paciente = new Paciente()
     this.startTextAnimation(0);
   }
 
@@ -62,17 +63,16 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   nextPage() {
     this.showAnimation = false;
-    console.log('validar cpf', this.cpf);
 
-    if (this.validarCpf(this.cpf)) {
-      this.pacienteService.verifyPacienteFromCpf(this.cpf)
+    if (this.validarCpf(this.paciente.cpf)) {
+      this.pacienteService.verifyPacienteFromCpf(this.paciente.cpf)
         .subscribe(result => {
+          localStorage.setItem("paciente",JSON.stringify(this.paciente));
           this.paciente = result;
           if (result) {
-            localStorage.setItem("paciente", JSON.stringify(this.paciente));
+            localStorage.setItem("paciente",JSON.stringify(this.paciente));
             this.router.navigate(['/confirmacao-dados']);
           } else {
-            localStorage.removeItem("paciente");
             this.router.navigate(['/passo1']);
           }
         });

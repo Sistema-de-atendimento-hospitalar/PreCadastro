@@ -1,7 +1,6 @@
 <app-header></app-header>
 <div class="wrapper">
     <div class="page-header header-filter">
-        <app-square-pre-cadastro></app-square-pre-cadastro>
         <div class="container">
             <div class="content-center">
                 <h1>Dados Pessoais</h1>
@@ -12,16 +11,16 @@
                             <div class="form-row">
                                 <div class="col-lg-9 col-md-9 col-sm-9 ">
                                     <label for="nome" class="col-sm-12 col-form-label">Nome</label>
-                                    <input type="text" class="form-control" id="nome" name="nome" required minlength="3" placeholder="Nome" />
+                                    <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="paciente.nome" required minlength="3" placeholder="Nome" />
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3">
                                     <label for="dtNascimento" class="col-sm-12 col-form-label">Data de Nascimento</label>
-                                    <input type="date" class="form-control" id="dtNascimento" name="dtNascimento" required minlength="10" placeholder="26/06/1994" />
+                                    <input type="date" class="form-control" id="dtNascimento" name="dtNascimento" [(ngModel)]="paciente.dtNascimento" required minlength="10" placeholder="26/06/1994" />
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-lg-9 col-md-9 col-sm-9">
-                                    <label for="email" class="col-sm-12 col-form-label">Email: {{paciente.email}}</label>
+                                    <label for="email" class="col-sm-12 col-form-label"></label>
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 email">
                                             <input type="email" class="form-control" id="email" name="email" [(ngModel)]="paciente.email" required minlength="7" placeholder="Email" (change)="validateEmail()" />
@@ -39,7 +38,7 @@
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3">
                                     <label for="sexo" class="col-sm-12 col-form-label">Sexo</label>
-                                    <mat-select class="form-control" id="sexo" name="sexo" required>
+                                    <mat-select class="form-control" id="sexo" name="sexo" [(ngModel)]="paciente.sexo" required>
                                         <mat-option value="M">Masculino</mat-option>
                                         <mat-option value="F">Feminino</mat-option>
                                     </mat-select>
@@ -48,15 +47,15 @@
                             <div class="form-row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <label for="rg" class="col-sm-12 col-form-label">Rg</label>
-                                    <input type="string" class="form-control" id="rg" name="rg" required minlength="13" placeholder="00.000.000-00 " [(ngModel)]="rg" mask="00.000.000-00" />
+                                    <input type="string" class="form-control" id="rg" name="rg" required minlength="13" [(ngModel)]="paciente.rg" placeholder="00.000.000-00 " [(ngModel)]="rg" mask="00.000.000-00" />
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3">
                                     <label for="orgExpedidor" class="col-sm-12 col-form-label">Orgão Expedidor</label>
-                                    <input type="text" class="form-control" id="orgaoExpedidor" name="orgaoExpedidor" required minlength="3" placeholder="SSP" />
+                                    <input type="text" class="form-control" id="orgaoExpedidor" name="orgaoExpedidor" [(ngModel)]="paciente.orgaoExpedidorRg" required minlength="3" placeholder="SSP" />
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3">
                                     <label for="dtEmissaoFor" class="col-sm-12 col-form-label">Data de Emissão</label>
-                                    <input type="date" class="form-control" id="dtEmissao" name="dtEmissao" required minlength="10" placeholder="26/06/1994" />
+                                    <input type="date" class="form-control" id="dtEmissao" name="dtEmissao" required minlength="10" [(ngModel)]="paciente.emissaoRg" placeholder="26/06/1994" />
                                 </div>
                             </div>
                         </div>
