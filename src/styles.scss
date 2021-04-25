@@ -12,9 +12,13 @@ body {
     height: 100%;
 }
 
+// body {
+//     margin: 0;
+//     font-family: Roboto, "Helvetica Neue", sans-serif;
+//     background-color: rgba(185, 212, 245, ) !important;
+//     background-image: url(./assets/img/medical.webp) !important;
+// }
+html,
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    height: 100%;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

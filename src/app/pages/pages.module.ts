@@ -1,6 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-// import { NgCpfModule } from 'ngcpf';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
@@ -22,6 +21,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+
+
 
 
 
@@ -43,7 +46,6 @@ import { InputCidadeComponent } from '../shared/forms/input/input-cidade/input-c
 import { EnderecoComponent } from '../shared/forms/input/endereco/endereco.component';
 import { TelefoneComponent } from '../shared/forms/input/telefone/telefone.component';
 import { ModalComponent } from '../shared/modal/modal.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 
@@ -52,14 +54,15 @@ import { DadosEnderecoComponent } from './dados-endereco/dados-endereco.componen
 import { DadosTelefoneComponent } from './dados-telefone/dados-telefone.component';
 import { DadosConvenioComponent } from './dados-convenio/dados-convenio.component';
 import { DadosConfirmacaoComponent } from './dados-confirmacao/dados-confirmacao.component';
+import { ModalEnderecoComponent } from "../shared/modal/modal-endereco/modal-endereco.component";
 
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   imports: [
-    // NgCpfModule,
-    MatDatepickerModule,
+    MatInputModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
@@ -97,6 +100,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     EnderecoComponent,
     TelefoneComponent,
     ModalComponent,
+    ModalEnderecoComponent,
 
     DadosPessoaisComponent,
     DadosEnderecoComponent,
@@ -110,6 +114,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     // RegisterpageComponent,
     // LandingpageComponent
   ],
-  providers: []
+  providers: [],
+  entryComponents: [ModalEnderecoComponent]
 })
 export class PagesModule { }

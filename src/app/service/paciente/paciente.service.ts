@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Paciente } from '../../../models/paciente.model'
+import { Endereco } from 'src/models/endereco.model';
+import { Telefone } from 'src/models/telefone.model';
+import { CartaoSaude } from 'src/models/convenio.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,17 +24,23 @@ export class PacienteService {
 
   verifyPacienteFromCpf(cpf: string): Observable<Paciente> {
     return this.http.get<Paciente>(`${this.API_URL}/cpf/${cpf}`, httpOptions).pipe();
-
-      // .pipe(
-      //   tap(paciente => console.log(paciente)),
-      //   catchError(err => this.handleError('verifyPacienteFromCpf', err))
-      // );
   }
 
-  // private handleError<T>(operation = 'operation', result?: T) {
-  //   return (error: any): Observable<T> => {
-  //     console.error(error);
-  //     return of(result as T);
-  //   };
-  // }
+  savePaciente(paciente:Paciente):Observable<Paciente>{
+    return this.http.post<Paciente>(`${this.API_URL}`, paciente).pipe();
+  }
+
+  saveEndereco(endereco:Endereco, paciente:Paciente):Observable<Paciente>{
+    return this.http.post<Paciente>(`${this.API_URL}/${paciente.idPaciente}/endereco`, endereco).pipe();
+  }
+
+  saveTelefone(telefone:Telefone, paciente:Paciente):Observable<Paciente>{
+    return this.http.post<Paciente>(`${this.API_URL}/${paciente.idPaciente}/telefone`, telefone).pipe();
+  }
+
+  saveCartaoSaude(cartaoSaude:CartaoSaude, paciente:Paciente):Observable<Paciente>{
+    return this.http.post<Paciente>(`${this.API_URL}/${paciente.idPaciente}/cartaoSaude`, cartaoSaude).pipe();
+  }
+
+
 }

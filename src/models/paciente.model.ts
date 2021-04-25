@@ -1,3 +1,7 @@
+import { CartaoSaude } from "./convenio.model";
+import { Endereco } from "./endereco.model";
+import { Telefone } from "./telefone.model";
+
 export class Paciente {
     public idPaciente: number;
     public nome: string;
@@ -8,6 +12,10 @@ export class Paciente {
     public emissaoRg: Date;
     public dtNascimento: Date;
     public sexo: string;
+    public telefone:Telefone[];
+    public endereco:Endereco[];
+    public cartaoSaude?:CartaoSaude;
+
 
 
     constructor(){}

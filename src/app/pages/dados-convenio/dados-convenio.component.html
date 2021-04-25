@@ -6,25 +6,25 @@
             <div class="content-center">
 
                 <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="!respondeuConvenio">
-                    <h1>Possui Convênio?</h1>
+                    <h1>Possui Convênio</h1>
 
-                    <button class="btn btn-primary btn-round" (click)="temConvenio(true)">
-                        Sim
-                    </button>
+                    <button mat-raised-button color="warn" (click)="temConvenio(true)">
+                                Sim
+                            </button>
 
-                    <button class="btn btn-primary btn-round" (click)="temConvenio(false)">
-                        Não
-                    </button>
+                    <button mat-raised-button color="warn" (click)="temConvenio(false)">
+                                Não
+                            </button>
                 </div>
 
                 <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="respondeuConvenio && !hasConvenio">
                     <h1>Pagamento Particular</h1>
 
-                    <button class="btn btn-primary btn-round" (click)="pagamentoParticular(true)">
+                    <button mat-raised-button color="warn" (click)="pagamentoParticular(true)">
                         Sim
                     </button>
 
-                    <button class="btn btn-primary btn-round" (click)="pagamentoParticular(false)">
+                    <button mat-raised-button color="warn" (click)="pagamentoParticular(false)">
                         Não
                     </button>
                 </div>
@@ -32,11 +32,11 @@
                 <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="respondeuConvenio && hasConvenio && !respondeuModoAcesso">
                     <h1>Modo de acesso</h1>
 
-                    <button class="btn btn-primary btn-round" (click)="acessarComCodigo()">
+                    <button mat-raised-button color="warn" (click)="acessarComCodigo()">
                         Código cartão
                     </button>
 
-                    <button class="btn btn-primary btn-round" (click)="cadastrarCartao()">
+                    <button mat-raised-button color="warn" (click)="cadastrarCartao()">
                         Cadastro cartão
                     </button>
                 </div>
