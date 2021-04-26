@@ -42,5 +42,18 @@ export class PacienteService {
     return this.http.post<Paciente>(`${this.API_URL}/${paciente.idPaciente}/cartaoSaude`, cartaoSaude).pipe();
   }
 
+  getPacienteFromLocalStore():Paciente{
+    let pacienteJsonConfirm = localStorage.getItem("paciente")
+    let paciente:Paciente;
+
+    if(pacienteJsonConfirm){
+      paciente = JSON.parse(pacienteJsonConfirm);
+    } else{
+      paciente = new Paciente();
+
+    }
+    return paciente;
+  }
+
 
 }
